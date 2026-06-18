@@ -103,26 +103,19 @@ const initialState: GameState = {
 // ── Fallback questions ────────────────────────────────────────────────────
 
 const FALLBACK_QUESTIONS: Record<string, Question[]> = {
-  science: [
-    { text: 'What is the chemical formula for water?', options: ['H2O', 'CO2', 'NaCl', 'O2'], correct: 0, explanation: 'Water consists of two hydrogen atoms bonded to one oxygen atom.', difficulty: 'easy' },
-    { text: 'Which planet is known as the Red Planet?', options: ['Venus', 'Jupiter', 'Mars', 'Saturn'], correct: 2, explanation: 'Mars appears red due to iron oxide (rust) on its surface.', difficulty: 'easy' },
-    { text: 'What is the speed of light in a vacuum?', options: ['300,000 km/s', '150,000 km/s', '500,000 km/s', '200,000 km/s'], correct: 0, explanation: 'Light travels at approximately 299,792 km/s in a vacuum.', difficulty: 'medium' },
-    { text: 'Which element has the atomic number 79?', options: ['Silver', 'Gold', 'Platinum', 'Copper'], correct: 1, explanation: 'Gold (Au) has atomic number 79 on the periodic table.', difficulty: 'medium' },
-    { text: 'What is the powerhouse of the cell?', options: ['Nucleus', 'Ribosome', 'Mitochondria', 'Golgi body'], correct: 2, explanation: 'Mitochondria produce ATP through cellular respiration.', difficulty: 'easy' },
+  technology_ai: [
+    { text: "What does 'AI' stand for?", options: ['Automated Intelligence', 'Artificial Intelligence', 'Advanced Intelligence', 'Applied Intelligence'], correct: 1, explanation: 'AI stands for Artificial Intelligence.', difficulty: 'easy' },
+    { text: 'What is machine learning?', options: ['Programming robots manually', 'Systems that learn from data', 'A type of hardware', 'A programming language'], correct: 1, explanation: 'Machine learning enables systems to learn patterns from data.', difficulty: 'easy' },
+    { text: 'What is a neural network inspired by?', options: ['Computer chips', 'Human brain', 'Internet', 'Electric circuits'], correct: 1, explanation: 'Neural networks are inspired by biological neurons in the brain.', difficulty: 'medium' },
+    { text: 'What company developed ChatGPT?', options: ['Google', 'Microsoft', 'OpenAI', 'Meta'], correct: 2, explanation: 'OpenAI developed ChatGPT, released in November 2022.', difficulty: 'easy' },
+    { text: 'What is deep learning?', options: ['Learning in 3D', 'Neural networks with many layers', 'Learning underwater', 'Slow learning'], correct: 1, explanation: 'Deep learning uses multi-layered neural networks.', difficulty: 'medium' },
   ],
-  technology: [
-    { text: "What does 'HTTP' stand for?", options: ['HyperText Transfer Protocol', 'High Tech Transfer Process', 'Hyperlink Text Tool Protocol', 'High Transfer Technology Protocol'], correct: 0, explanation: 'HTTP is the foundation of data communication on the web.', difficulty: 'easy' },
+  programming: [
     { text: "What does 'CPU' stand for?", options: ['Core Processing Unit', 'Central Processing Unit', 'Computer Performance Unit', 'Central Program Utility'], correct: 1, explanation: 'CPU stands for Central Processing Unit.', difficulty: 'easy' },
     { text: 'What is the time complexity of binary search?', options: ['O(n)', 'O(n²)', 'O(log n)', 'O(1)'], correct: 2, explanation: 'Binary search halves the search space each step, giving O(log n).', difficulty: 'hard' },
     { text: "What does 'API' stand for?", options: ['Application Programming Interface', 'Applied Program Integration', 'Automated Process Input', 'Application Protocol Interface'], correct: 0, explanation: 'An API is a set of protocols allowing software applications to communicate.', difficulty: 'easy' },
-    { text: 'Which company created Python?', options: ['Microsoft', 'Google', 'Guido van Rossum (independently)', 'Apple'], correct: 2, explanation: 'Python was created by Guido van Rossum, first released in 1991.', difficulty: 'medium' },
-  ],
-  mathematics: [
-    { text: "What is the value of π to 4 decimal places?", options: ['3.1416', '3.1214', '3.1592', '3.1459'], correct: 0, explanation: 'Pi ≈ 3.14159265...', difficulty: 'easy' },
-    { text: 'What is the derivative of x²?', options: ['x', '2x', 'x²', '2'], correct: 1, explanation: 'Using the power rule: d/dx(x²) = 2x.', difficulty: 'medium' },
-    { text: "Sum of angles in a triangle?", options: ['90°', '180°', '270°', '360°'], correct: 1, explanation: 'The interior angles of any triangle always sum to 180 degrees.', difficulty: 'easy' },
-    { text: 'Square root of 144?', options: ['11', '12', '13', '14'], correct: 1, explanation: '12 × 12 = 144.', difficulty: 'easy' },
-    { text: 'If f(x) = 3x + 7, what is f(4)?', options: ['15', '16', '18', '19'], correct: 3, explanation: 'f(4) = 3(4) + 7 = 19.', difficulty: 'medium' },
+    { text: 'Who created Python?', options: ['Microsoft', 'Google', 'Guido van Rossum', 'Apple'], correct: 2, explanation: 'Python was created by Guido van Rossum, first released in 1991.', difficulty: 'medium' },
+    { text: 'What is a variable in programming?', options: ['A constant value', 'A named storage location', 'A function', 'A loop'], correct: 1, explanation: 'Variables store data that can be accessed and modified.', difficulty: 'easy' },
   ],
   history: [
     { text: 'In what year did World War II end?', options: ['1943', '1944', '1945', '1946'], correct: 2, explanation: 'WWII ended in 1945.', difficulty: 'easy' },
@@ -131,20 +124,6 @@ const FALLBACK_QUESTIONS: Record<string, Question[]> = {
     { text: 'The Berlin Wall fell in?', options: ['1987', '1989', '1991', '1993'], correct: 1, explanation: 'The Berlin Wall fell November 9, 1989.', difficulty: 'easy' },
     { text: 'Who wrote the Declaration of Independence?', options: ['Franklin', 'Adams', 'Jefferson', 'Madison'], correct: 2, explanation: 'Thomas Jefferson was the principal author in 1776.', difficulty: 'easy' },
   ],
-  logic: [
-    { text: 'If all A are B, and all B are C, then:', options: ['Some A are C', 'All A are C', 'No A are C', 'Cannot determine'], correct: 1, explanation: 'If A⊆B and B⊆C, then A⊆C.', difficulty: 'medium' },
-    { text: "Next in sequence: 2, 4, 8, 16, __?", options: ['24', '28', '32', '36'], correct: 2, explanation: 'Each number doubles: 16 × 2 = 32.', difficulty: 'easy' },
-    { text: 'Most sides: hexagon, octagon, pentagon, heptagon?', options: ['Hexagon (6)', 'Octagon (8)', 'Pentagon (5)', 'Heptagon (7)'], correct: 1, explanation: 'An octagon has 8 sides.', difficulty: 'easy' },
-    { text: 'Tom is father of Sam. Sam is brother of Alice. What is Tom to Alice?', options: ['Uncle', 'Grandfather', 'Father', 'Brother'], correct: 2, explanation: 'Tom is Alice\'s father.', difficulty: 'easy' },
-    { text: '3L jug and 5L jug — measure exactly 4L?', options: ['Fill 5L, pour into 3L; empty 3L; pour 2L into 3L; fill 5L; pour 1L to 3L — 4L remains', 'Fill 3L twice', 'Fill 5L, pour 1L out', 'Impossible'], correct: 0, explanation: 'Classic water pouring puzzle.', difficulty: 'hard' },
-  ],
-  literature: [
-    { text: 'Who wrote "Romeo and Juliet"?', options: ['Dickens', 'Shakespeare', 'Austen', 'Twain'], correct: 1, explanation: 'Shakespeare wrote it around 1594–1596.', difficulty: 'easy' },
-    { text: 'Where is Atticus Finch from?', options: ['The Great Gatsby', 'Of Mice and Men', 'To Kill a Mockingbird', '1984'], correct: 2, explanation: 'Atticus Finch is in Harper Lee\'s To Kill a Mockingbird.', difficulty: 'easy' },
-    { text: 'Who wrote "1984"?', options: ['Huxley', 'Bradbury', 'Orwell', 'Kafka'], correct: 2, explanation: 'George Orwell published 1984 in 1949.', difficulty: 'easy' },
-    { text: 'First line of A Tale of Two Cities?', options: ['"Call me Ishmael."', '"It was the best of times..."', '"In the beginning..."', '"Happy families are all alike"'], correct: 1, explanation: 'Dickens\'s famous opening.', difficulty: 'medium' },
-    { text: 'Who wrote "The Odyssey"?', options: ['Virgil', 'Sophocles', 'Homer', 'Plato'], correct: 2, explanation: 'The Odyssey is attributed to Homer.', difficulty: 'easy' },
-  ],
   geography: [
     { text: 'Capital of Australia?', options: ['Sydney', 'Melbourne', 'Canberra', 'Brisbane'], correct: 2, explanation: 'Canberra is the capital, not Sydney.', difficulty: 'medium' },
     { text: 'Largest ocean?', options: ['Atlantic', 'Indian', 'Pacific', 'Arctic'], correct: 2, explanation: 'Pacific Ocean covers more than 30% of Earth.', difficulty: 'easy' },
@@ -152,17 +131,66 @@ const FALLBACK_QUESTIONS: Record<string, Question[]> = {
     { text: 'Longest river in the world?', options: ['Amazon', 'Nile', 'Yangtze', 'Mississippi'], correct: 1, explanation: 'The Nile at ~6,650 km.', difficulty: 'easy' },
     { text: 'Country with most natural lakes?', options: ['Russia', 'United States', 'Canada', 'Finland'], correct: 2, explanation: 'Canada has ~879,000 lakes.', difficulty: 'hard' },
   ],
-  crypto_web3: [
-    { text: 'What consensus mechanism does Ethereum use?', options: ['Proof of Work', 'Proof of Stake', 'Delegated Proof of Stake', 'Proof of Authority'], correct: 1, explanation: 'Ethereum switched to Proof of Stake in The Merge (Sept 2022).', difficulty: 'easy' },
-    { text: "What does 'NFT' stand for?", options: ['New Financial Token', 'Non-Fungible Token', 'Network File Transfer', 'No Fiat Transaction'], correct: 1, explanation: 'NFT = Non-Fungible Token.', difficulty: 'easy' },
-    { text: 'Who created Bitcoin?', options: ['Vitalik Buterin', 'Craig Wright', 'Satoshi Nakamoto', 'Nick Szabo'], correct: 2, explanation: 'Satoshi Nakamoto published the whitepaper in 2008.', difficulty: 'easy' },
-    { text: 'What is a smart contract?', options: ['A legal PDF', 'Self-executing code on a blockchain', 'An encrypted email', 'A 2FA system'], correct: 1, explanation: 'Smart contracts execute when predetermined conditions are met.', difficulty: 'medium' },
-    { text: 'Max supply of Bitcoin?', options: ['10M BTC', '21M BTC', '100M BTC', 'Unlimited'], correct: 1, explanation: 'Bitcoin has a hard cap of 21 million coins.', difficulty: 'easy' },
+  science_astronomy: [
+    { text: 'What is the chemical formula for water?', options: ['H2O', 'CO2', 'NaCl', 'O2'], correct: 0, explanation: 'Water consists of two hydrogen atoms bonded to one oxygen atom.', difficulty: 'easy' },
+    { text: 'Which planet is known as the Red Planet?', options: ['Venus', 'Jupiter', 'Mars', 'Saturn'], correct: 2, explanation: 'Mars appears red due to iron oxide (rust) on its surface.', difficulty: 'easy' },
+    { text: 'What is the speed of light in a vacuum?', options: ['300,000 km/s', '150,000 km/s', '500,000 km/s', '200,000 km/s'], correct: 0, explanation: 'Light travels at approximately 299,792 km/s in a vacuum.', difficulty: 'medium' },
+    { text: 'Which element has the atomic number 79?', options: ['Silver', 'Gold', 'Platinum', 'Copper'], correct: 1, explanation: 'Gold (Au) has atomic number 79 on the periodic table.', difficulty: 'medium' },
+    { text: 'What is the powerhouse of the cell?', options: ['Nucleus', 'Ribosome', 'Mitochondria', 'Golgi body'], correct: 2, explanation: 'Mitochondria produce ATP through cellular respiration.', difficulty: 'easy' },
+  ],
+  business_economics: [
+    { text: 'What is GDP?', options: ['Gross Domestic Product', 'General Domestic Price', 'Global Dollar Price', 'Gross Dollar Profit'], correct: 0, explanation: 'GDP measures the total value of goods and services produced.', difficulty: 'easy' },
+    { text: 'What is inflation?', options: ['Decrease in prices', 'Increase in prices over time', 'Stable prices', 'Price fluctuation'], correct: 1, explanation: 'Inflation is the rate at which prices increase over time.', difficulty: 'easy' },
+    { text: 'What is a stock?', options: ['A loan to a company', 'Ownership share in a company', 'A type of bond', 'Company profit'], correct: 1, explanation: 'Stocks represent ownership shares in a corporation.', difficulty: 'easy' },
+    { text: 'What does ROI stand for?', options: ['Rate of Income', 'Return on Investment', 'Revenue on Items', 'Rate of Interest'], correct: 1, explanation: 'ROI measures the profitability of an investment.', difficulty: 'medium' },
+    { text: 'What is a monopoly?', options: ['Many competitors', 'Single seller in market', 'Government control', 'Price competition'], correct: 1, explanation: 'A monopoly exists when one company dominates a market.', difficulty: 'medium' },
+  ],
+  sports: [
+    { text: 'How many players are on a soccer team?', options: ['9', '10', '11', '12'], correct: 2, explanation: 'Each soccer team has 11 players on the field.', difficulty: 'easy' },
+    { text: 'In which sport would you perform a slam dunk?', options: ['Tennis', 'Basketball', 'Volleyball', 'Baseball'], correct: 1, explanation: 'A slam dunk is a basketball move.', difficulty: 'easy' },
+    { text: 'How long is a marathon?', options: ['26.2 miles', '20 miles', '30 miles', '25 miles'], correct: 0, explanation: 'A marathon is 26.2 miles (42.195 km).', difficulty: 'medium' },
+    { text: 'What sport uses a shuttlecock?', options: ['Tennis', 'Badminton', 'Squash', 'Table tennis'], correct: 1, explanation: 'Badminton uses a shuttlecock (birdie).', difficulty: 'easy' },
+    { text: 'How many rings are on the Olympic flag?', options: ['4', '5', '6', '7'], correct: 1, explanation: 'The Olympic flag has 5 interlocking rings.', difficulty: 'easy' },
+  ],
+  cinema_entertainment: [
+    { text: 'Who directed "Inception"?', options: ['Steven Spielberg', 'Christopher Nolan', 'James Cameron', 'Quentin Tarantino'], correct: 1, explanation: 'Christopher Nolan directed Inception (2010).', difficulty: 'easy' },
+    { text: 'What year was the first "Star Wars" released?', options: ['1975', '1977', '1979', '1981'], correct: 1, explanation: 'Star Wars (A New Hope) was released in 1977.', difficulty: 'medium' },
+    { text: 'Which studio created Mickey Mouse?', options: ['Pixar', 'Disney', 'DreamWorks', 'Warner Bros'], correct: 1, explanation: 'Walt Disney created Mickey Mouse in 1928.', difficulty: 'easy' },
+    { text: 'What is the highest-grossing film of all time?', options: ['Titanic', 'Avengers: Endgame', 'Avatar', 'Star Wars'], correct: 2, explanation: 'Avatar (2009) is the highest-grossing film worldwide.', difficulty: 'medium' },
+    { text: 'Who played Jack in "Titanic"?', options: ['Brad Pitt', 'Leonardo DiCaprio', 'Tom Cruise', 'Johnny Depp'], correct: 1, explanation: 'Leonardo DiCaprio played Jack Dawson.', difficulty: 'easy' },
+  ],
+  english: [
+    { text: 'What is a synonym for "happy"?', options: ['Sad', 'Joyful', 'Angry', 'Tired'], correct: 1, explanation: 'Joyful means the same as happy.', difficulty: 'easy' },
+    { text: 'What is an antonym for "cold"?', options: ['Freezing', 'Hot', 'Cool', 'Chilly'], correct: 1, explanation: 'Hot is the opposite of cold.', difficulty: 'easy' },
+    { text: 'Which word is a noun?', options: ['Run', 'Beautiful', 'Happiness', 'Quickly'], correct: 2, explanation: 'Happiness is a noun (thing/feeling).', difficulty: 'easy' },
+    { text: 'What is the past tense of "write"?', options: ['Writed', 'Wrote', 'Written', 'Writing'], correct: 1, explanation: 'The past tense of write is wrote.', difficulty: 'easy' },
+    { text: 'What type of word describes a verb?', options: ['Noun', 'Adjective', 'Adverb', 'Pronoun'], correct: 2, explanation: 'Adverbs modify verbs, adjectives, or other adverbs.', difficulty: 'medium' },
+  ],
+  logic_problem_solving: [
+    { text: 'If all A are B, and all B are C, then:', options: ['Some A are C', 'All A are C', 'No A are C', 'Cannot determine'], correct: 1, explanation: 'If A⊆B and B⊆C, then A⊆C.', difficulty: 'medium' },
+    { text: 'Next in sequence: 2, 4, 8, 16, __?', options: ['24', '28', '32', '36'], correct: 2, explanation: 'Each number doubles: 16 × 2 = 32.', difficulty: 'easy' },
+    { text: 'Most sides: hexagon, octagon, pentagon, heptagon?', options: ['Hexagon (6)', 'Octagon (8)', 'Pentagon (5)', 'Heptagon (7)'], correct: 1, explanation: 'An octagon has 8 sides.', difficulty: 'easy' },
+    { text: 'Tom is father of Sam. Sam is brother of Alice. What is Tom to Alice?', options: ['Uncle', 'Grandfather', 'Father', 'Brother'], correct: 2, explanation: 'Tom is Alice\'s father.', difficulty: 'easy' },
+    { text: '3L jug and 5L jug — measure exactly 4L?', options: ['Fill 5L, pour into 3L; empty 3L; pour 2L into 3L; fill 5L; pour 1L to 3L — 4L remains', 'Fill 3L twice', 'Fill 5L, pour 1L out', 'Impossible'], correct: 0, explanation: 'Classic water pouring puzzle.', difficulty: 'hard' },
+  ],
+  culture_art: [
+    { text: 'Who painted the Mona Lisa?', options: ['Michelangelo', 'Leonardo da Vinci', 'Raphael', 'Donatello'], correct: 1, explanation: 'Leonardo da Vinci painted the Mona Lisa.', difficulty: 'easy' },
+    { text: 'What is the Sistine Chapel famous for?', options: ['Architecture', 'Michelangelo\'s ceiling', 'Sculptures', 'Mosaics'], correct: 1, explanation: 'Michelangelo painted the famous ceiling frescoes.', difficulty: 'medium' },
+    { text: 'Which art movement did Picasso pioneer?', options: ['Impressionism', 'Cubism', 'Surrealism', 'Realism'], correct: 1, explanation: 'Picasso co-founded the Cubist movement.', difficulty: 'medium' },
+    { text: 'What is origami?', options: ['Chinese painting', 'Japanese paper folding', 'Korean pottery', 'Thai sculpture'], correct: 1, explanation: 'Origami is the Japanese art of paper folding.', difficulty: 'easy' },
+    { text: 'Who composed "The Four Seasons"?', options: ['Mozart', 'Beethoven', 'Vivaldi', 'Bach'], correct: 2, explanation: 'Antonio Vivaldi composed The Four Seasons.', difficulty: 'medium' },
+  ],
+  general_knowledge: [
+    { text: 'How many continents are there?', options: ['5', '6', '7', '8'], correct: 2, explanation: 'There are 7 continents on Earth.', difficulty: 'easy' },
+    { text: 'What is the largest planet in our solar system?', options: ['Saturn', 'Jupiter', 'Neptune', 'Uranus'], correct: 1, explanation: 'Jupiter is the largest planet.', difficulty: 'easy' },
+    { text: 'How many days are in a leap year?', options: ['364', '365', '366', '367'], correct: 2, explanation: 'A leap year has 366 days.', difficulty: 'easy' },
+    { text: 'What is the capital of France?', options: ['London', 'Paris', 'Berlin', 'Madrid'], correct: 1, explanation: 'Paris is the capital of France.', difficulty: 'easy' },
+    { text: 'How many letters are in the English alphabet?', options: ['24', '25', '26', '27'], correct: 2, explanation: 'The English alphabet has 26 letters.', difficulty: 'easy' },
   ],
 };
 
 function getFallbackQuestions(categoryId: string, count: number): Question[] {
-  const pool = FALLBACK_QUESTIONS[categoryId] ?? FALLBACK_QUESTIONS.technology;
+  const pool = FALLBACK_QUESTIONS[categoryId] ?? FALLBACK_QUESTIONS.general_knowledge;
   return [...pool].sort(() => Math.random() - 0.5).slice(0, count);
 }
 

@@ -213,14 +213,18 @@ export type RankTierId = typeof RANK_TIERS[number]['id'];
 
 // ── Category metadata ─────────────────────────────────────────────────────
 export const CATEGORIES = [
-  { id: 'science',     label: 'Science',       icon: '⚗️', color: '#00D4FF', unlockLevel: 1 },
-  { id: 'history',     label: 'History',       icon: '🏛️', color: '#CD7F32', unlockLevel: 1 },
-  { id: 'technology',  label: 'Technology',    icon: '💻', color: '#00C896', unlockLevel: 1 },
-  { id: 'mathematics', label: 'Mathematics',   icon: '∑',  color: '#7C5CFC', unlockLevel: 1 },
-  { id: 'literature',  label: 'Literature',    icon: '📚', color: '#9BB0CC', unlockLevel: 3 },
-  { id: 'geography',   label: 'Geography',     icon: '🌍', color: '#FFB84D', unlockLevel: 3 },
-  { id: 'logic',       label: 'Logic',         icon: '♟', color: '#8FCDDD', unlockLevel: 5 },
-  { id: 'crypto_web3', label: 'Crypto & Web3', icon: '⟠', color: '#B9F2FF', unlockLevel: 5 },
+  { id: 'technology_ai',       label: 'Technology & AI',       icon: '🤖', color: '#00C896', unlockLevel: 1 },
+  { id: 'programming',         label: 'Programming',           icon: '💻', color: '#7C5CFC', unlockLevel: 1 },
+  { id: 'history',              label: 'History',               icon: '🏛️', color: '#CD7F32', unlockLevel: 1 },
+  { id: 'geography',            label: 'Geography',             icon: '🌍', color: '#FFB84D', unlockLevel: 1 },
+  { id: 'science_astronomy',    label: 'Science & Astronomy',   icon: '🔬', color: '#00D4FF', unlockLevel: 1 },
+  { id: 'business_economics',   label: 'Business & Economics', icon: '📈', color: '#9BB0CC', unlockLevel: 3 },
+  { id: 'sports',               label: 'Sports',                icon: '⚽', color: '#EF4444', unlockLevel: 3 },
+  { id: 'cinema_entertainment', label: 'Cinema & Entertainment',icon: '🎬', color: '#B9F2FF', unlockLevel: 3 },
+  { id: 'english',              label: 'English',               icon: '📚', color: '#8FCDDD', unlockLevel: 5 },
+  { id: 'logic_problem_solving',label: 'Logic & Problem Solving',icon: '🧩', color: '#F59E0B', unlockLevel: 5 },
+  { id: 'culture_art',          label: 'Culture & Art',         icon: '🎨', color: '#EC4899', unlockLevel: 7 },
+  { id: 'general_knowledge',    label: 'General Knowledge',    icon: '💡', color: '#A78BFA', unlockLevel: 1 },
 ] as const;
 
 export type CategoryId = typeof CATEGORIES[number]['id'];

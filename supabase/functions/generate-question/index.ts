@@ -7,14 +7,18 @@ const corsHeaders = {
 };
 
 const CATEGORY_LABELS: Record<string, string> = {
-  science:     "Science (physics, chemistry, biology, astronomy)",
-  history:     "History (world events, civilizations, politics)",
-  technology:  "Technology (software, hardware, computer science, AI)",
-  mathematics: "Mathematics (algebra, calculus, geometry, logic)",
-  literature:  "Literature (classic works, authors, narrative craft)",
-  geography:   "Geography (countries, capitals, terrain, cultures)",
-  logic:       "Logic & Reasoning (puzzles, syllogisms, sequences)",
-  crypto_web3: "Crypto & Web3 (blockchain, DeFi, protocols, cryptography)",
+  technology_ai:        "Technology & AI (artificial intelligence, machine learning, tech innovations)",
+  programming:         "Programming (software development, coding, algorithms, computer science)",
+  history:             "History (world events, civilizations, politics, wars, historical figures)",
+  geography:           "Geography (countries, capitals, terrain, cultures, landmarks)",
+  science_astronomy:   "Science & Astronomy (physics, chemistry, biology, space exploration)",
+  business_economics:  "Business & Economics (finance, markets, entrepreneurship, economic theory)",
+  sports:              "Sports (athletics, teams, rules, records, sporting events)",
+  cinema_entertainment:"Cinema & Entertainment (movies, TV shows, actors, directors, entertainment industry)",
+  english:             "English (grammar, vocabulary, literature, language structure)",
+  logic_problem_solving:"Logic & Problem Solving (puzzles, syllogisms, sequences, analytical thinking)",
+  culture_art:         "Culture & Art (painting, sculpture, music, cultural movements, art history)",
+  general_knowledge:   "General Knowledge (trivia, facts, common knowledge across all domains)",
 };
 
 const DIFFICULTY_MAP: Record<number, string> = {

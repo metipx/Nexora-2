@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
-  FlaskConical, Clock, Cpu, Calculator, BookOpen, Globe,
-  Lightbulb, Bitcoin, Lock, ChevronRight, Zap, TrendingUp,
+  Bot, Code, Clock, Globe, FlaskConical,
+  TrendingUp, Trophy, Film, BookOpen, Puzzle,
+  Palette, Lightbulb, Lock, ChevronRight, Zap,
 } from 'lucide-react';
 import { Player, CategoryMastery } from '../../lib/supabase';
 import { CATEGORIES } from '../../design-system/tokens';
@@ -15,14 +16,18 @@ interface CategorySelectProps {
 }
 
 const CAT_ICONS: Record<string, React.ReactNode> = {
-  science:     <FlaskConical size={26} />,
-  history:     <Clock size={26} />,
-  technology:  <Cpu size={26} />,
-  mathematics: <Calculator size={26} />,
-  literature:  <BookOpen size={26} />,
-  geography:   <Globe size={26} />,
-  logic:       <Lightbulb size={26} />,
-  crypto_web3: <Bitcoin size={26} />,
+  technology_ai:        <Bot size={26} />,
+  programming:         <Code size={26} />,
+  history:             <Clock size={26} />,
+  geography:           <Globe size={26} />,
+  science_astronomy:   <FlaskConical size={26} />,
+  business_economics:  <TrendingUp size={26} />,
+  sports:              <Trophy size={26} />,
+  cinema_entertainment:<Film size={26} />,
+  english:             <BookOpen size={26} />,
+  logic_problem_solving:<Puzzle size={26} />,
+  culture_art:         <Palette size={26} />,
+  general_knowledge:   <Lightbulb size={26} />,
 };
 
 const DIFFICULTY_LABELS = ['Beginner','Beginner','Easy','Easy','Medium','Medium','Hard','Hard','Expert','Expert','Elite'];

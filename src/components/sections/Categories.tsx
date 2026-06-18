@@ -1,19 +1,24 @@
 import { useState } from 'react';
 import {
-  FlaskConical, Clock, Cpu, Calculator,
-  BookOpen, Globe, Lightbulb, Bitcoin, Lock,
+  Bot, Code, Clock, Globe, FlaskConical,
+  TrendingUp, Trophy, Film, BookOpen, Puzzle,
+  Palette, Lightbulb, Lock,
 } from 'lucide-react';
 import { useReveal } from '../../hooks/useLanding';
 
 const CATEGORIES = [
-  { id: 'science',     label: 'Science',       icon: <FlaskConical size={24} />, color: '#00D4FF', bg: 'rgba(0,212,255,0.1)',      border: 'rgba(0,212,255,0.2)',     desc: 'Physics, chemistry, biology and beyond',       locked: false, unlockLevel: 1  },
-  { id: 'history',     label: 'History',        icon: <Clock size={24} />,        color: '#FFB84D', bg: 'rgba(255,184,77,0.1)',     border: 'rgba(255,184,77,0.2)',    desc: 'Ancient civilizations to modern events',       locked: false, unlockLevel: 1  },
-  { id: 'technology',  label: 'Technology',     icon: <Cpu size={24} />,          color: '#00C896', bg: 'rgba(0,200,150,0.1)',      border: 'rgba(0,200,150,0.2)',     desc: 'Software, hardware, AI and the digital world', locked: false, unlockLevel: 1  },
-  { id: 'mathematics', label: 'Mathematics',    icon: <Calculator size={24} />,   color: '#9B81FF', bg: 'rgba(124,92,252,0.1)',     border: 'rgba(124,92,252,0.2)',    desc: 'Logic, proofs, algebra and number theory',     locked: false, unlockLevel: 1  },
-  { id: 'literature',  label: 'Literature',     icon: <BookOpen size={24} />,     color: '#9BB0CC', bg: 'rgba(155,176,204,0.1)',    border: 'rgba(155,176,204,0.2)',   desc: 'Classic works, authors and narrative craft',   locked: true,  unlockLevel: 5  },
-  { id: 'geography',   label: 'Geography',      icon: <Globe size={24} />,        color: '#FFB84D', bg: 'rgba(255,184,77,0.08)',    border: 'rgba(255,184,77,0.18)',   desc: 'Nations, terrain, climate and cultures',       locked: true,  unlockLevel: 8  },
-  { id: 'logic',       label: 'Logic',          icon: <Lightbulb size={24} />,    color: '#8FCDDD', bg: 'rgba(143,205,221,0.08)',   border: 'rgba(143,205,221,0.18)',  desc: 'Puzzles, reasoning chains and paradoxes',       locked: true,  unlockLevel: 12 },
-  { id: 'crypto_web3', label: 'Crypto & Web3',  icon: <Bitcoin size={24} />,      color: '#B9F2FF', bg: 'rgba(185,242,255,0.07)',   border: 'rgba(185,242,255,0.15)', desc: 'Blockchain, DeFi, protocols and cryptography', locked: true,  unlockLevel: 15 },
+  { id: 'technology_ai',       label: 'Technology & AI',      icon: <Bot size={24} />,       color: '#00C896', bg: 'rgba(0,200,150,0.1)',      border: 'rgba(0,200,150,0.2)',     desc: 'Artificial intelligence, machine learning, tech innovations',  locked: false, unlockLevel: 1  },
+  { id: 'programming',         label: 'Programming',          icon: <Code size={24} />,      color: '#7C5CFC', bg: 'rgba(124,92,252,0.1)',     border: 'rgba(124,92,252,0.2)',   desc: 'Software development, coding, algorithms',                    locked: false, unlockLevel: 1  },
+  { id: 'history',              label: 'History',              icon: <Clock size={24} />,     color: '#CD7F32', bg: 'rgba(205,127,50,0.1)',     border: 'rgba(205,127,50,0.2)',   desc: 'Ancient civilizations to modern events',                      locked: false, unlockLevel: 1  },
+  { id: 'geography',            label: 'Geography',            icon: <Globe size={24} />,     color: '#FFB84D', bg: 'rgba(255,184,77,0.1)',    border: 'rgba(255,184,77,0.2)',   desc: 'Nations, terrain, climate and cultures',                      locked: false, unlockLevel: 1  },
+  { id: 'science_astronomy',    label: 'Science & Astronomy',  icon: <FlaskConical size={24} />,color: '#00D4FF', bg: 'rgba(0,212,255,0.1)',      border: 'rgba(0,212,255,0.2)',    desc: 'Physics, chemistry, biology, space exploration',              locked: false, unlockLevel: 1  },
+  { id: 'business_economics',   label: 'Business & Economics', icon: <TrendingUp size={24} />, color: '#9BB0CC', bg: 'rgba(155,176,204,0.1)',   border: 'rgba(155,176,204,0.2)',  desc: 'Finance, markets, entrepreneurship',                           locked: true,  unlockLevel: 5  },
+  { id: 'sports',               label: 'Sports',               icon: <Trophy size={24} />,    color: '#EF4444', bg: 'rgba(239,68,68,0.1)',      border: 'rgba(239,68,68,0.2)',    desc: 'Athletics, teams, records, sporting events',                  locked: true,  unlockLevel: 5  },
+  { id: 'cinema_entertainment', label: 'Cinema & Entertainment',icon: <Film size={24} />,      color: '#B9F2FF', bg: 'rgba(185,242,255,0.1)',   border: 'rgba(185,242,255,0.2)',  desc: 'Movies, TV shows, actors, entertainment industry',            locked: true,  unlockLevel: 7  },
+  { id: 'english',              label: 'English',              icon: <BookOpen size={24} />,  color: '#8FCDDD', bg: 'rgba(143,205,221,0.1)',    border: 'rgba(143,205,221,0.2)',  desc: 'Grammar, vocabulary, language structure',                      locked: true,  unlockLevel: 9  },
+  { id: 'logic_problem_solving',label: 'Logic & Problem Solving',icon: <Puzzle size={24} />,    color: '#F59E0B', bg: 'rgba(245,158,11,0.1)',    border: 'rgba(245,158,11,0.2)',   desc: 'Puzzles, reasoning, analytical thinking',                     locked: true,  unlockLevel: 12 },
+  { id: 'culture_art',          label: 'Culture & Art',        icon: <Palette size={24} />,   color: '#EC4899', bg: 'rgba(236,72,153,0.1)',    border: 'rgba(236,72,153,0.2)',   desc: 'Painting, sculpture, music, art history',                     locked: true,  unlockLevel: 15 },
+  { id: 'general_knowledge',    label: 'General Knowledge',    icon: <Lightbulb size={24} />, color: '#A78BFA', bg: 'rgba(167,139,250,0.1)',   border: 'rgba(167,139,250,0.2)',  desc: 'Trivia, facts across all domains',                            locked: false, unlockLevel: 1  },
 ];
 
 export default function CategoriesSection() {
@@ -35,7 +40,7 @@ export default function CategoriesSection() {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-4 text-xs font-title font-semibold tracking-widest uppercase"
             style={{ background: 'rgba(0,200,150,0.1)', border: '1px solid rgba(0,200,150,0.22)', color: '#33E8B8' }}
           >
-            8 Domains
+            12 Domains
           </div>
           <h2
             className="font-title font-extrabold mb-4"
@@ -44,7 +49,7 @@ export default function CategoriesSection() {
             Knowledge Has No Ceiling
           </h2>
           <p className="text-lg max-w-xl mx-auto" style={{ color: 'rgba(230,237,247,0.5)' }}>
-            Eight categories, each with infinite AI-generated questions. Unlock new domains as your level grows.
+            Twelve categories, each with infinite AI-generated questions. Unlock new domains as your level grows.
           </p>
         </div>
 

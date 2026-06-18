@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 import {
   Zap, Flame, Trophy, Crown, Sparkles, Star, TrendingUp, Target,
   Calendar, ChevronRight, Sword, ShoppingBag, Shield, Lock, Award,
-  FlaskConical, Clock, Cpu, Calculator, BookOpen, Globe, Lightbulb,
-  Bitcoin, BarChart3, CheckCircle2, User,
+  Bot, Code, Globe, FlaskConical, Film, BookOpen, Puzzle,
+  Palette, Lightbulb, BarChart3, CheckCircle2, User,
 } from 'lucide-react';
 import { CATEGORIES, RANK_TIERS } from '../design-system/tokens';
 import { Player, CategoryMastery, ChallengeSession, Achievement, InventoryItem } from '../lib/supabase';
@@ -22,14 +22,18 @@ interface DashboardProps {
 }
 
 const CAT_ICONS: Record<string, React.ReactNode> = {
-  science:     <FlaskConical size={20} />,
-  history:     <Clock size={20} />,
-  technology:  <Cpu size={20} />,
-  mathematics: <Calculator size={20} />,
-  literature:  <BookOpen size={20} />,
-  geography:   <Globe size={20} />,
-  logic:       <Lightbulb size={20} />,
-  crypto_web3: <Bitcoin size={20} />,
+  technology_ai:        <Bot size={20} />,
+  programming:         <Code size={20} />,
+  history:             <Clock size={20} />,
+  geography:           <Globe size={20} />,
+  science_astronomy:   <FlaskConical size={20} />,
+  business_economics:  <TrendingUp size={20} />,
+  sports:              <Trophy size={20} />,
+  cinema_entertainment:<Film size={20} />,
+  english:             <BookOpen size={20} />,
+  logic_problem_solving:<Puzzle size={20} />,
+  culture_art:         <Palette size={20} />,
+  general_knowledge:   <Lightbulb size={20} />,
 };
 
 const ACHIEVEMENT_META: Record<string, { label: string; icon: React.ReactNode; color: string }> = {
@@ -216,7 +220,7 @@ export default function Dashboard({ state, onStartChallenge, onGoToCategorySelec
 
       {/* Daily challenge + Streak */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <Card index={2}><DailyChallengeCard dailyDone={dailyDone} onStart={() => onStartChallenge('technology', { isDaily: true })} /></Card>
+        <Card index={2}><DailyChallengeCard dailyDone={dailyDone} onStart={() => onStartChallenge('programming', { isDaily: true })} /></Card>
         <Card index={3}><StreakCard player={player} /></Card>
       </div>
 
@@ -308,7 +312,7 @@ export default function Dashboard({ state, onStartChallenge, onGoToCategorySelec
       {/* Shop / Boss / Premium row */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         <Card index={9}><ShopCard onGoToShop={onGoToShop} /></Card>
-        <Card index={10}><BossCard player={player} onStart={() => onStartChallenge('science', { isBoss: true })} /></Card>
+        <Card index={10}><BossCard player={player} onStart={() => onStartChallenge('science_astronomy', { isBoss: true })} /></Card>
         <Card index={11}><PremiumCard player={player} /></Card>
       </div>
 

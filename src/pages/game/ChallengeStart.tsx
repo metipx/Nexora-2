@@ -1,18 +1,22 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Zap, Clock, Star, Target, FlaskConical, Cpu, Calculator, BookOpen, Globe, Lightbulb, Bitcoin, Sword } from 'lucide-react';
+import { Zap, Clock, Star, Target, Bot, Code, Globe, FlaskConical, TrendingUp, Trophy, Film, BookOpen, Puzzle, Palette, Lightbulb, Sword } from 'lucide-react';
 import { CATEGORIES } from '../../design-system/tokens';
 import { Player } from '../../lib/supabase';
 
 const CAT_ICONS: Record<string, React.ReactNode> = {
-  science:     <FlaskConical size={36} />,
-  history:     <Clock size={36} />,
-  technology:  <Cpu size={36} />,
-  mathematics: <Calculator size={36} />,
-  literature:  <BookOpen size={36} />,
-  geography:   <Globe size={36} />,
-  logic:       <Lightbulb size={36} />,
-  crypto_web3: <Bitcoin size={36} />,
+  technology_ai:        <Bot size={36} />,
+  programming:         <Code size={36} />,
+  history:             <Clock size={36} />,
+  geography:           <Globe size={36} />,
+  science_astronomy:   <FlaskConical size={36} />,
+  business_economics:  <TrendingUp size={36} />,
+  sports:              <Trophy size={36} />,
+  cinema_entertainment:<Film size={36} />,
+  english:             <BookOpen size={36} />,
+  logic_problem_solving:<Puzzle size={36} />,
+  culture_art:         <Palette size={36} />,
+  general_knowledge:   <Lightbulb size={36} />,
 };
 
 function levelToDifficulty(level: number) {

@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   User, Zap, Flame, Trophy, Crown, Target, BarChart3,
-  CheckCircle2, Sword, Shield, ChevronRight, FlaskConical, Clock,
-  Cpu, Calculator, BookOpen, Globe, Lightbulb, Bitcoin, Package,
+  CheckCircle2, Sword, Shield, ChevronRight,
+  Bot, Code, Globe, FlaskConical, TrendingUp, Film, BookOpen, Puzzle,
+  Palette, Lightbulb, Package,
 } from 'lucide-react';
 import { CATEGORIES, RANK_TIERS } from '../design-system/tokens';
 import { Player, CategoryMastery, ChallengeSession, Achievement, InventoryItem } from '../lib/supabase';
@@ -31,9 +32,18 @@ const ACHIEVEMENT_META: Record<string, { label: string; icon: React.ReactNode; c
 };
 
 const CAT_ICONS: Record<string, React.ReactNode> = {
-  science: <FlaskConical size={16} />, history: <Clock size={16} />, technology: <Cpu size={16} />,
-  mathematics: <Calculator size={16} />, literature: <BookOpen size={16} />, geography: <Globe size={16} />,
-  logic: <Lightbulb size={16} />, crypto_web3: <Bitcoin size={16} />,
+  technology_ai:        <Bot size={16} />,
+  programming:         <Code size={16} />,
+  history:             <Clock size={16} />,
+  geography:           <Globe size={16} />,
+  science_astronomy:   <FlaskConical size={16} />,
+  business_economics:  <TrendingUp size={16} />,
+  sports:              <Trophy size={16} />,
+  cinema_entertainment:<Film size={16} />,
+  english:             <BookOpen size={16} />,
+  logic_problem_solving:<Puzzle size={16} />,
+  culture_art:         <Palette size={16} />,
+  general_knowledge:   <Lightbulb size={16} />,
 };
 
 function rankInfo(tier: string) { return RANK_TIERS.find(r => r.id === tier) ?? RANK_TIERS[0]; }
